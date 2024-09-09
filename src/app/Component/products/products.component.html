@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="col-md-12 mb-4">
+    <div class="row">
+  @for (product of products; track product.id) {
+    <div class="col-md-4 mb-4 mt-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-thumbnail" style="height: 250px;" [src]="product.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}</h5>
+          <p class="card-text">{{product.price | currency}}</p>
+          <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+</div>
+
+</div>
