@@ -1,0 +1,19 @@
+<div class="container py-5">
+    <h2>Shopping Cart</h2>
+    <hr>
+    <div *ngIf="items.length > 0; else emptyCart">
+        <div *ngFor="let item of items" class="d-flex align-items-center mb-3 border p-3">
+            <img [src]="item.image" alt="{{ item.title }}" style="width: 100px; height: 100px; object-fit: contain;"
+                class="me-3">
+            <div class="flex-grow-1">
+                <h5>{{ item.title }}</h5>
+                <p class="fw-bold">{{ item.price | currency: 'USD' }}</p>
+            </div>
+        </div>
+    </div>
+    <ng-template #emptyCart>
+        <div class="alert alert-info">
+            Your cart is empty. <a routerLink="/product">Continue Shopping</a>.
+        </div>
+    </ng-template>
+</div>
