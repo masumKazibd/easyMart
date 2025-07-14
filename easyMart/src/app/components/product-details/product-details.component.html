@@ -1,0 +1,22 @@
+<div class="container my-5">
+    <div *ngIf="product" class="row">
+        <div class="col-md-6">
+            <img [src]="product.image" alt="{{ product.title }}" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <h1 class="display-5">{{ product.title }}</h1>
+            <p class="lead text-muted">{{ product.category | titlecase }}</p>
+            <h3 class="my-3">{{ product.price | currency:'USD' }}</h3>
+            <p class="my-3">{{ product.description }}</p>
+
+            <div class="d-flex align-items-center mb-4">
+                <span class="badge bg-success me-2">{{ product.rating.rate }} <i class="bi bi-star-fill"></i></span>
+                <span class="text-muted">({{ product.rating.count }} ratings)</span>
+            </div>
+
+            <button class="btn btn-primary btn-lg">
+                <i class="bi bi-cart-plus-fill me-2"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
