@@ -14,7 +14,7 @@
                 <span class="text-muted">({{ product.rating.count }} ratings)</span>
             </div>
 
-            <button class="btn btn-primary btn-lg">
+            <button class="btn btn-primary btn-lg" (click)="addToCart(product!)">
                 <i class="bi bi-cart-plus-fill me-2"></i> Add to Cart
             </button>
         </div>
