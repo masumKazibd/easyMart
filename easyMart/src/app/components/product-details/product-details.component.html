@@ -17,6 +17,9 @@
             <button class="btn btn-primary btn-lg" (click)="addToCart(product!)">
                 <i class="bi bi-cart-plus-fill me-2"></i> Add to Cart
             </button>
+            <div *ngIf="showSuccessMessage" class="alert alert-success mt-3">
+                <strong>Success!</strong> Your product has been added to the cart!
+            </div>
         </div>
     </div>
 </div>

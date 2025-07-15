@@ -16,6 +16,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class ProductDetailsComponent implements OnInit{
   product: Product | undefined;
+  showSuccessMessage = false;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -30,6 +31,10 @@ export class ProductDetailsComponent implements OnInit{
   }
   addToCart(product: Product){
     this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
+    this.showSuccessMessage = true;
+    
+    setTimeout(() => {
+      this.showSuccessMessage = false;
+    }, 3000);
   }
 }
