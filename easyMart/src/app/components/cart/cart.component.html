@@ -8,7 +8,7 @@
                 <tr>
                     <th scope="col">Product
                     <th scope="col">Price
-                    <th scope="col">Quality
+                    <th scope="col">Quantity
                     <th scope="col">Total
                     <th scope="col">Actions
                 </tr>
@@ -23,7 +23,7 @@
                         </div>
                     </td>
                     <td>{{item.product.price | currency: 'USD'}}</td>
-                    <td>{{item.product.quantity}}</td>
+                    <td>{{item.quantity}}</td>
                     <td>{{(item.product.price * item.quantity) | currency: 'USD'}}</td>
                     <td>
                         <button class="btn btn-danger btn-sm" (click)="removeItem(item.product.id)">
@@ -40,7 +40,7 @@
     </div>
     <ng-template #emptyCart>
         <div class="alert alert-info">
-            Your cart is empty. <a routerLink="/product">Continue Shopping</a>.
+            Your cart is empty. <a routerLink="/products">Continue Shopping</a>.
         </div>
     </ng-template>
 </div>
