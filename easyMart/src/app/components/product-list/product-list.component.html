@@ -1,4 +1,14 @@
 <div class="container py-4">
+    <div *ngIf="isLoading" class="text-center my-5">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2">Loading Products...</p>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger my-5">
+        {{ error }}
+    </div>
     <div class="row mb-4">
         <div class="col-md-8 mb-3">
             <button class="btn btn-outline-secondary me-2 mb-2" (click)="filterByCategory('all')">All</button>

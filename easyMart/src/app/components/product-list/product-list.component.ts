@@ -21,17 +21,32 @@ export class ProductListComponent implements OnInit {
   categories: string[] = [];
   addedProductId: number | null = null;
 
+  isLoading = false;
+  error: string | null = null;
+  
+  
   constructor(
     private productService: ProductService,
     private cartService: CartService
   ){}
 
   ngOnInit(): void{
-    this.productService.getAllProducts().subscribe(data => {
+    this.isLoading = true;
+    this.error = null;
+
+    this.productService.getAllProducts().subscribe({
+      next: (data) => {
       this.allProducts = data;
       this.filteredProducts = data;
       console.log('Products loaded:', this.allProducts);
-    });
+      this.isLoading = false;
+    },
+    error: (err) => {
+      console.log('Failed to load products!!! ', err);
+      this.error = 'Sorry, we could not load the products. Please try again later.';
+      this.isLoading = false;
+    }
+  });   
 
     this.productService.getAllCategories().subscribe(data => {
       this.categories = data;
