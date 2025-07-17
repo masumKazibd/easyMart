@@ -33,13 +33,15 @@
                     <h5 class="card-title">{{product.title}}</h5>
                     <p class="card-text fw-bold mt-auto">{{ product.price | currency:'USD'}}</p>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-primary w-100" (click)="addToCart(product)">
-                        <i class="bi bi-cart-plus-fill"></i> Add to Cart
+                <div class="card-footer p-2">
+                    <button *ngIf="addedProductId !== product.id" class="btn btn-primary w-100"
+                        (click)="addToCart(product)">
+                        <i class="bi bi-cart-plus-fill me-2"></i> Add to Cart
                     </button>
-                </div>
-                <div *ngIf="addedProductId === product.id" class="alert alert-success">
-                    <strong>Success!</strong><span> Added to cart</span>
+
+                    <button *ngIf="addedProductId === product.id" class="btn btn-success w-100" disabled>
+                        <i class="bi bi-check-circle-fill me-2"></i> Added!
+                    </button>
                 </div>
             </div>
 
